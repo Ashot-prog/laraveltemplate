@@ -24,7 +24,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('categories.create');
+        return view('admin.categories.create');
     }
 
     /**
@@ -47,7 +47,7 @@ class CategoriesController extends Controller
         $category->fill(['image' => $request->input('image')]);
         $category->fill(['jobs_count' => $request->input('jobs_count')]);
         $category->fill(['sort' => $request->input('sort')]);
-        return redirect()->route('categories.index');
+        return redirect()->route('admin.categories.index');
     }
 
     /**
@@ -91,7 +91,7 @@ class CategoriesController extends Controller
         $category->update(['image' => $request->input('image')]);
         $category->update(['jobs_count' => $request->input('jobs_count')]);
         $category->update(['sort' => $request->input('sort')]);
-        return redirect()->route('book.index', ['book' => $category]);
+        return redirect()->route('.admin.categories.index', ['book' => $category]);
     }
 
     /**
