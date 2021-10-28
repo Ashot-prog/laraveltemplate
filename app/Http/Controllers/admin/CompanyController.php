@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\admin\Controllers;
 
-use App\Models\Categories;
+use App\Models\admin\Categories;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
-class CategoriesController extends Controller
+class CompanyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,7 +25,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create');
+        return view('admin.company.create');
     }
 
     /**
@@ -47,7 +48,7 @@ class CategoriesController extends Controller
         $category->fill(['image' => $request->input('image')]);
         $category->fill(['jobs_count' => $request->input('jobs_count')]);
         $category->fill(['sort' => $request->input('sort')]);
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('admin.company.index');
     }
 
     /**
