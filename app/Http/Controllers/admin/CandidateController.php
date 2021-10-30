@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\admin\Controllers;
+namespace App\Http\Controllers\admin;
 
 use App\Models\admin\Candidate;
 use Illuminate\Database\Eloquent\Model;
@@ -13,9 +13,15 @@ class CandidateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         //
+    }
+
+    public function __construct()
+    {
+
     }
 
     /**
@@ -50,7 +56,7 @@ class CandidateController extends Controller
         $candidate->fill(['mail' => $request->input('mail')]);
         $candidate->fill(['password' => $request->input('password')]);
         $candidate->fill(['birth_date' => $request->input('birth_date')]);
-        return redirect()->route('admin.candidate.index');
+        return redirect()->route('/');
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\admin\Controllers;
+namespace App\Http\Controllers\admin;
 
 use App\Models\admin\Categories;
 use Illuminate\Database\Eloquent\Model;
