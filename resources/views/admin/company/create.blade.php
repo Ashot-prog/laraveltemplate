@@ -59,29 +59,20 @@
                         <form action="" method="post">
                             @csrf
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="category" name="category">
+                                <input type="text" class="form-control" placeholder="Name" name="name">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="location" name="location">
+                                <input type="text" class="form-control" placeholder="Last Name" name="surname">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Jobs" name="job_type">
+                                <input type="email" class="form-control" placeholder="Email" name="email">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="salary" placeholder="salary">
+                                <input type="text" class="form-control" name="phone_number" placeholder="phoneNumber">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="employer" placeholder="employer">
+                                <input type="password" class="form-control" placeholder="Password">
                             </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="industry" placeholder="industry">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="experience" placeholder="experience">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="level" placeholder="level">
-                            </div>>
                             <button type="submit" class="btn">Register Here</button>
                         </form>
                     </div>
@@ -147,15 +138,12 @@
 </body>
 </html>
 
-
-{{--<form action="{{route('jobs.store')}}">--}}
-{{--    <input type="text" name="category">--}}
-{{--    <input type="text" name="location">--}}
-{{--    <input type="email" name="job_type">--}}
-{{--    <input type="date" name="salary">--}}
-{{--    <input type="password" name="employer">--}}
-{{--    <input type="password" name="industry">--}}
-{{--    <input type="password" name="level">--}}
-{{--    <input type="password" name="experience">--}}
+{{--<form action="{{route('candidate.store')}}">--}}
+{{--    <input type="text" name="name" placeholder="enter name">--}}
+{{--    <input type="text" name="surname" placeholder="enter surname">--}}
+{{--    <input type="email" name="email" placeholder="enter email">--}}
+{{--    <input type="date" name="birth_date">--}}
+{{--    <input type="password" name="password" placeholder="password">--}}
 {{--    <input type="submit" value="grancum">--}}
 {{--</form>--}}
+

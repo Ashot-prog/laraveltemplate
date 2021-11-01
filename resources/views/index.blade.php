@@ -48,7 +48,7 @@
     <!-- Menu For Mobile Device -->
     <div class="mobile-nav">
         <a href="index.html" class="logo">
-            <img src="assets/img/logo-three.png" alt="Logo">
+            <img src="{{asset('../img/logo-three.png')}}" alt="Logo">
         </a>
     </div>
 
@@ -57,7 +57,7 @@
         <div class="container-fluid">
             <nav class="navbar navbar-expand-md navbar-light">
                 <a class="navbar-brand" href="index.html">
-                    <img src="assets/img/logo.png" alt="Logo">
+                    <img src="{{asset('../img/logo.png')}}" alt="Logo">
                 </a>
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav">
@@ -146,7 +146,7 @@
                                     <a href="job-details.html" class="nav-link">Job Details</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="post-a-job.html" class="nav-link">Post A Job</a>
+                                    <a href="{{asset('admin/jobregister')}}" class="nav-link">Post A Job</a>
                                 </li>
                             </ul>
                         </li>
@@ -174,15 +174,15 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="contact.html" class="nav-link">Contact</a>
+                            <a href="{{asset('admin/companyregister')}}" class="nav-link">Contact</a>
                         </li>
                     </ul>
                     <div class="side-nav">
-                        <a class="login-left" href="/register">
+                        <a class="login-left" href="admin/register">
                             <i class="flaticon-enter"></i>
                             Login/Register
                         </a>
-                        <a class="job-right" href="post-a-job.html">
+                        <a class="job-right" href="{{asset('admin/jobregister')}}">
                             Post A Job
                             <i class='bx bx-plus'></i>
                         </a>
@@ -197,7 +197,7 @@
 <!-- Banner -->
 <div class="banner-area">
     <div class="banner-shape">
-        <img src="assets/img/home-one/banner/shape-bottom.png" alt="Shape">
+        <img src="{{asset('../img/home-one/banner/shape-bottom.png')}}" alt="Shape">
     </div>
     <div class="container-fluid">
         <div class="row">
@@ -271,21 +271,20 @@
             </div>
             <div class="col-lg-4">
                 <div class="banner-img">
-                    <img src="assets/img/home-one/banner/banner-main.jpg" alt="Shape">
-                    <img src="assets/img/home-one/banner/banner1.png" alt="Shape">
-                    <img src="assets/img/home-one/banner/banner3.png" alt="Shape">
-                    <img src="assets/img/home-one/banner/banner4.png" alt="Shape">
-                    <img src="assets/img/home-one/banner/banner5.png" alt="Shape">
-                    <img src="assets/img/home-one/banner/banner6.png" alt="Shape">
-                    <img src="assets/img/home-one/banner/banner7.png" alt="Shape">
-                    <img src="assets/img/home-one/banner/banner8.png" alt="Shape">
-                    <img src="assets/img/home-one/banner/banner9.png" alt="Shape">
-                    <img src="assets/img/home-one/banner/banner10.jpg" alt="Shape">
-                    <img src="assets/img/home-one/banner/banner11.png" alt="Shape">
-                    <img src="assets/img/home-one/banner/banner12.png" alt="Shape">
-                    <img src="assets/img/home-one/banner/banner13.png" alt="Shape">
+                    <img src="{{asset('../img/home-one/banner/banner1.png')}}" alt="Shape">
+                    <img src="{{asset('../img/home-one/banner/banner3.png')}}" alt="Shape">
+                    <img src="{{asset('../img/home-one/banner/banner4.png')}}" alt="Shape">
+                    <img src="{{asset('../img/home-one/banner/banner5.png')}}" alt="Shape">
+                    <img src="{{asset('../img/home-one/banner/banner6.png')}}" alt="Shape">
+                    <img src="{{asset('../img/home-one/banner/banner7.png')}}" alt="Shape">
+                    <img src="{{asset('../img/home-one/banner/banner8.png')}}" alt="Shape">
+                    <img src="{{asset('../img/home-one/banner/banner9.png')}}" alt="Shape">
+                    <img src="{{asset('../img/home-one/banner/banner10.png')}}" alt="Shape">
+                    <img src="{{asset('../img/home-one/banner/banner11.png')}}" alt="Shape">
+                    <img src="{{asset('../img/home-one/banner/banner12.png')}}" alt="Shape">
+                    <img src="{{asset('../img/home-one/banner/banner13.png')}}" alt="Shape">
                     <div class="inner">
-                        <img src="assets/img/home-one/banner/banner2.png" alt="Shape">
+                        <img src="{{asset('../img/home-one/banner/banner2.png')}}" alt="Shape">
                         <p>Outsourcing all or part of your personnel management function can bring real</p>
                     </div>
                 </div>
@@ -630,7 +629,7 @@
 <!-- Counter -->
 <div class="counter-area pt-100">
     <div class="counter-shape">
-        <img src="assets/img/home-one/banner/shape-bottom.png" alt="Shape">
+        <img src="{{asset('../img/home-one/banner/shape-bottom.png')}}" alt="Shape">
     </div>
     <div class="container">
         <div class="row">
@@ -1043,7 +1042,7 @@
 <!-- Feedback -->
 <section class="feedback-area pt-100">
     <div class="feedback-shape">
-        <img src="assets/img/home-one/banner/shape-bottom.png" alt="Shape">
+        <img src="{{asset('../img/home-one/banner/shape-bottom.png')}}" alt="Shape">
     </div>
     <div class="container">
         <div class="section-title">
@@ -1231,8 +1230,8 @@
             </div>
             <div class="col-lg-6">
                 <div class="app-img">
-                    <img src="assets/img/home-one/app4.png" alt="App">
-                    <img src="assets/img/home-one/app3.png" alt="Shape">
+                    <img src="{{asset('../img/home-one/app4.png.')}}" alt="App">
+                    <img src="{{asset('../img/home-one/app3.png')}}" alt="Shape">
                 </div>
             </div>
         </div>
@@ -1248,7 +1247,7 @@
                 <div class="footer-item">
                     <div class="footer-logo">
                         <a class="logo" href="index.html">
-                            <img src="assets/img/logo.png" alt="Logo">
+                            <img src="{{asset('../img/logo.png')}}" alt="Logo">
                         </a>
                         <ul>
                             <li>
@@ -1319,7 +1318,7 @@
                                 <a href="blog.html" target="_blank">Blog</a>
                             </li>
                             <li>
-                                <a href="contact.html" target="_blank">Contact</a>
+                                <a href="{{asset('/jobregister')}}" target="_blank">Contact</a>
                             </li>
                         </ul>
                     </div>

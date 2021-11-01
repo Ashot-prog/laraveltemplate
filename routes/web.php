@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\CandidateController;
+use App\Http\Controllers\auth\RegisterController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,27 +17,39 @@ use App\Http\Controllers\admin\CandidateController;
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/register', function () {
-    return view('admin.candidate.create');
+Route::post('/create', function () {
+    return view('auth.register');
 });
-Route::get('/jobregister', function () {
-    return view('admin.jobs.create');
-});
-Route::get('/companyregister', function () {
-    return view('admin.company.create');
-});
+Route::post('/add', [RegisterController::class, 'store'])->name('create');
 Route::get('/jobs', function () {
-    return view('admin.jobs.show');
+    return view('frontend.candidate.job.show-job');
 });
 Route::get('/company', function () {
-    return view('admin.company.index');
+    return view('frontend.company.layouts.app');
+});
+Route::get('/category', function () {
+    return view('frontend.company.layouts.app');
+});
+Route::prefix('admin')->group(function () {
+    Route::get('/register', function () {
+        return view('admin.candidate.create');
+    });
+    Route::get('/edit', function () {
+        return view('admin.candidate.edit');
+    });
+    Route::get('/jobregister', function () {
+        return view('admin.jobs.create');
+    });
+    Route::get('/companyregister', function () {
+        return view('admin.company.create');
+    });
+    Route::get('/companyedit', function () {
+        return view('admin.company.edit');
+    });
+
+    Route::post('/candidate', [CandidateController::class, 'store'])->name('candidateCreat');
 });
 
-Route::post('/candidate', [CandidateController::class, 'store'])->name('candidateCreat');
 
 
-//Route::group([ 'prefix' => 'admin'], function () {
-//
-//    Route::get('/candidate', [CandidateController::class, 'store']);
-//    Route::resource('jobs', 'JobsController');
-//});
+

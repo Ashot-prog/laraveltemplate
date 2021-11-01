@@ -62,7 +62,7 @@
                                 <input type="text" class="form-control" placeholder="Name" name="name">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="SurName" name="surname">
+                                <input type="text" class="form-control" placeholder="Last Name" name="surname">
                             </div>
                             <div class="form-group">
                                 <input type="email" class="form-control" placeholder="Email" name="email">
