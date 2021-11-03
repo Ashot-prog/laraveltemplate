@@ -241,21 +241,5 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery -->
-<script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
-<script src="{{asset('js/custom.js')}}"></script>
-<!-- Bootstrap -->
-<script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<!-- jQuery UI -->
-<script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js')}}"></script>
-<!-- AdminLTE App -->
-<script src="{{ asset('js/adminlte.min.js') }}"></script>
-<!-- fullCalendar 2.2.5 -->
-<script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
-<script src="{{ asset('plugins/fullcalendar/main.js') }}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{asset('js/demo.js')}}"></script>
-<!-- Page specific script -->
-<script src="{{ asset('js/admin1.js') }}}"></script>
 </body>
 </html>

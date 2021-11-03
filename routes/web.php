@@ -27,6 +27,12 @@ Route::get('/jobs', function () {
 Route::get('/company', function () {
     return view('frontend.company.layouts.app');
 });
+Route::get('/createresum', function () {
+    return view('frontend.candidate.resume.add-resume');
+});
+Route::get('/myresume', function () {
+    return view('frontend.candidate.resume.resume');
+});
 Route::get('/category', function () {
     return view('frontend.company.layouts.app');
 });
