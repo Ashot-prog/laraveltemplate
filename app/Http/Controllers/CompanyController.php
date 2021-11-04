@@ -27,12 +27,7 @@ class CompanyController extends Controller
             'level' => ['required'],
             'experience' => ['required']
         ]);
-        $resume = new Resume();
-
-        $resume->fill(['companyName' => $request->input('companyName')]);
-        $resume->fill(['phoneNumber' => $request->input('phoneNumber')]);
-        $resume->fill(['level' => $request->input('level')]);
-        $resume->fill(['experience' => $request->input('experience')]);
+        Resume::create($request->all());
         return redirect()->route('index');
     }
 
@@ -44,12 +39,8 @@ class CompanyController extends Controller
             'level' => ['required'],
             'experience' => ['required']
         ]);
-        $resume = new Resume();
+        Resume::update($request->all());
 
-        $resume->update(['companyName' => $request->input('companyName')]);
-        $resume->update(['phoneNumber' => $request->input('phoneNumber')]);
-        $resume->update(['level' => $request->input('level')]);
-        $resume->update(['experience' => $request->input('experience')]);
         return redirect()->route('index');
     }
 }

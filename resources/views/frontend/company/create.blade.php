@@ -1,37 +1,4 @@
-<!DOCTYPE html>
-<html lang="zxx">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{asset('../css/bootstrap.min.css')}}">
-    <!-- Meanmenu CSS -->
-    <link rel="stylesheet" href="{{asset('../css/meanmenu.css')}}">
-    <!-- Nice Select JS -->
-    <link rel="stylesheet" href="{{asset('../css/nice-select.min.css')}}">
-    <!-- Boxicon CSS -->
-    <link rel="stylesheet" href="{{asset('../css/boxicons.min.css')}}">
-    <!-- Flaticon CSS -->
-    <link rel="stylesheet" href="{{asset('../fonts/flaticon.css')}}">
-    <!-- Popup CSS -->
-    <link rel="stylesheet" href="{{asset('../css/magnific-popup.min.css')}}">
-    <!-- Odometer CSS -->
-    <link rel="stylesheet" href="{{asset('../css/odometer.min.css')}}">
-    <!-- Owl Carousel CSS -->
-    <link rel="stylesheet" href="{{asset('../css/owl.carousel.min.css')}}">
-    <link rel="stylesheet" href="{{asset('../css/owl.theme.default.min.css')}}">
-    <!-- Animate CSS -->
-    <link rel="stylesheet" href="{{asset('../css/animate.min.css')}}">
-    <!-- Style CSS -->
-    <link rel="stylesheet" href="{{asset('../css/style.css')}}">
-    <!-- Responsive CSS -->
-    <link rel="stylesheet" href="{{asset('../css/responsive.css')}}">
-
-    <title>Jecto - Job Board and Portal HTML Template</title>
-
-    <link rel="icon" type="image/png" href="{{asset('../img/favicon.png')}}">
-</head>
+@extends('frontend.company.layout.layout')
 <body>
 <!-- Preloader -->
 <div class="loader">
@@ -136,4 +103,3 @@
 <!-- Custom JS -->
 <script src="{{asset('../js/custom.js')}}"></script>
 </body>
-</html>

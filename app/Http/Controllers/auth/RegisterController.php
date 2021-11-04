@@ -50,13 +50,7 @@ class RegisterController extends Controller
             'password' => ['required'],
             'birth_date' => ['required']
         ]);
-        $candidate = new Candidate();
-
-        $candidate->fill(['name' => $request->input('name')]);
-        $candidate->fill(['surname' => $request->input('surname')]);
-        $candidate->fill(['mail' => $request->input('mail')]);
-        $candidate->fill(['password' => $request->input('password')]);
-        $candidate->fill(['birth_date' => $request->input('birth_date')]);
+        Candidate::create($request->all());
         return redirect()->route('/');
     }
 

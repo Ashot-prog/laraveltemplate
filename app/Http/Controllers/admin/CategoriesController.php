@@ -41,12 +41,8 @@ class CategoriesController extends Controller
             'jobs_count' => ['required'],
             'sort' => ['required']
         ]);
-        $category = new Categories();
 
-        $category->fill(['title' => $request->input('title')]);
-        $category->fill(['image' => $request->input('image')]);
-        $category->fill(['jobs_count' => $request->input('jobs_count')]);
-        $category->fill(['sort' => $request->input('sort')]);
+        Categories::create($request->all());
         return redirect()->route('admin.categories.index');
     }
 
@@ -87,10 +83,7 @@ class CategoriesController extends Controller
             'jobs_count' => ['required'],
             'sort' => ['required']
         ]);
-        $category->update(['title' => $request->input('title')]);
-        $category->update(['image' => $request->input('image')]);
-        $category->update(['jobs_count' => $request->input('jobs_count')]);
-        $category->update(['sort' => $request->input('sort')]);
+        Categories::update($request->all());
         return redirect()->route('.admin.categories.index', ['book' => $category]);
     }
 

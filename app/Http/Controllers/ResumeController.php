@@ -30,15 +30,7 @@ class ResumeController extends Controller
             'position' => ['required'],
             'salary' => ['required']
         ]);
-        $resume = new Resume();
-
-        $resume->fill(['name' => $request->input('name')]);
-        $resume->fill(['email' => $request->input('email')]);
-        $resume->fill(['phone' => $request->input('phone')]);
-        $resume->fill(['birth_date' => $request->input('birth_date')]);
-        $resume->fill(['job_title' => $request->input('job_title')]);
-        $resume->fill(['position' => $request->input('position')]);
-        $resume->fill(['salary' => $request->input('salary')]);
+        Resume::create($request->all());
         return redirect()->route('index');
     }
 
@@ -53,13 +45,7 @@ class ResumeController extends Controller
             'position' => ['required'],
             'salary' => ['required']
         ]);
-        $resume->update(['name' => $request->input('name')]);
-        $resume->update(['email' => $request->input('email')]);
-        $resume->update(['phone' => $request->input('phone')]);
-        $resume->update(['birth_date' => $request->input('birth_date')]);
-        $resume->update(['job_title' => $request->input('job_title')]);
-        $resume->update(['position' => $request->input('position')]);
-        $resume->update(['salary' => $request->input('salary')]);
+        Resume::update($request->all());
         return redirect()->route('index');
     }
 }

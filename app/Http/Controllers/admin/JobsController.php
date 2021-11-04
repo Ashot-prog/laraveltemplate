@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
+use App\Models\Job;
 
 class JobsController extends Controller
 {
@@ -28,16 +29,7 @@ class JobsController extends Controller
             'level' => ['required'],
             'experience' => ['required']
         ]);
-        $Job = new JobsController();
-
-        $Job->fill(['title' => $request->input('category')]);
-        $Job->fill(['image' => $request->input('location')]);
-        $Job->fill(['jobs_count' => $request->input('job_type')]);
-        $Job->fill(['sort' => $request->input('salary')]);
-        $Job->fill(['sort' => $request->input('employer')]);
-        $Job->fill(['sort' => $request->input('industry')]);
-        $Job->fill(['sort' => $request->input('level')]);
-        $Job->fill(['sort' => $request->input('experience')]);
+        Job::create($request->all());
         return redirect()->route('admin.job.index');
     }
 
@@ -53,14 +45,7 @@ class JobsController extends Controller
             'level' => ['required'],
             'experience' => ['required']
         ]);
-        $job->update(['category' => $request->input('category')]);
-        $job->update(['location' => $request->input('location')]);
-        $job->update(['job_type' => $request->input('job_type')]);
-        $job->update(['salary' => $request->input('salary')]);
-        $job->update(['employer' => $request->input('employer')]);
-        $job->update(['industry' => $request->input('industry')]);
-        $job->update(['level' => $request->input('level')]);
-        $job->update(['experience' => $request->input('experience')]);
+        Job::update($request->all());
         return redirect()->route('admin.jobs.index', ['job' => $job]);
     }
 }
