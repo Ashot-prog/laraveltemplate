@@ -1,245 +1,161 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
 <head>
-    <style>
-        .shadow-sm {
-            display: none
-        }
-    </style>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title')</title>
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
-    <!-- fullCalendar -->
-    <link rel="stylesheet" href="{{asset('plugins/fullcalendar/main.css')}}">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="{{asset('css/adminlte.min.css')}}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{asset('../css/bootstrap.min.css')}}">
+    <!-- Meanmenu CSS -->
+    <link rel="stylesheet" href="{{asset('../css/meanmenu.css')}}">
+    <!-- Nice Select JS -->
+    <link rel="stylesheet" href="{{asset('../css/nice-select.min.css')}}">
+    <!-- Boxicon CSS -->
+    <link rel="stylesheet" href="{{asset('../css/boxicons.min.css')}}">
+    <!-- Flaticon CSS -->
+    <link rel="stylesheet" href="{{asset('../fonts/flaticon.css')}}">
+    <!-- Popup CSS -->
+    <link rel="stylesheet" href="{{asset('../css/magnific-popup.min.css')}}">
+    <!-- Odometer CSS -->
+    <link rel="stylesheet" href="{{asset('../css/odometer.min.css')}}">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="{{asset('../css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('../css/owl.theme.default.min.css')}}">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="{{asset('../css/animate.min.css')}}">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="{{asset('../css/style.css')}}">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="{{asset('../css/responsive.css')}}">
 
+    <title>Jecto - Job Board and Portal HTML Template</title>
+
+    <link rel="icon" type="image/png" href="{{asset('../img/favicon.png')}}">
 </head>
-<body class="hold-transition sidebar-mini">
-<div class="wrapper">
-    <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-        <!-- Left navbar links -->
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-            </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="{{ route('adminDashboard') }}" class="nav-link">Home</a>
-            </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">Contact</a>
-            </li>
-        </ul>
-
-        <!-- Right navbar links -->
-        <ul class="navbar-nav ml-auto">
-            <!-- Navbar Search -->
-            <li class="nav-item">
-                <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                    <i class="fas fa-search"></i>
-                </a>
-                <div class="navbar-search-block">
-                    <form class="form-inline">
-                        <div class="input-group input-group-sm">
-                            <input class="form-control form-control-navbar" type="search" placeholder="Search"
-                                   aria-label="Search">
-                            <div class="input-group-append">
-                                <button class="btn btn-navbar" type="submit">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                                    <i class="fas fa-times"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </li>
-
-            <!-- Messages Dropdown Menu -->
-            <li class="nav-item dropdown">
-                <a class="nav-link" data-toggle="dropdown" href="#">
-                    <i class="far fa-comments"></i>
-                    <span class="badge badge-danger navbar-badge">3</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                    <a href="#" class="dropdown-item">
-                        <!-- Message Start -->
-                        <div class="media">
-                            <img src="../dist/img/user1-128x128.jpg" alt="User Avatar"
-                                 class="img-size-50 mr-3 img-circle">
-                            <div class="media-body">
-                                <h3 class="dropdown-item-title">
-                                    Brad Diesel
-                                    <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                                </h3>
-                                <p class="text-sm">Call me whenever you can...</p>
-                                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                            </div>
-                        </div>
-                        <!-- Message End -->
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-                        <!-- Message Start -->
-                        <div class="media">
-                            <img src="../dist/img/user8-128x128.jpg" alt="User Avatar"
-                                 class="img-size-50 img-circle mr-3">
-                            <div class="media-body">
-                                <h3 class="dropdown-item-title">
-                                    John Pierce
-                                    <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                                </h3>
-                                <p class="text-sm">I got your message bro</p>
-                                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                            </div>
-                        </div>
-                        <!-- Message End -->
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-                        <!-- Message Start -->
-                        <div class="media">
-                            <img src="../dist/img/user3-128x128.jpg" alt="User Avatar"
-                                 class="img-size-50 img-circle mr-3">
-                            <div class="media-body">
-                                <h3 class="dropdown-item-title">
-                                    Nora Silvester
-                                    <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                                </h3>
-                                <p class="text-sm">The subject goes here</p>
-                                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                            </div>
-                        </div>
-                        <!-- Message End -->
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-                </div>
-            </li>
-            <!-- Notifications Dropdown Menu -->
-            <li class="nav-item dropdown">
-                <a class="nav-link" data-toggle="dropdown" href="#">
-                    <i class="far fa-bell"></i>
-                    <span class="badge badge-warning navbar-badge">15</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                    <span class="dropdown-item dropdown-header">15 Notifications</span>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-                        <i class="fas fa-envelope mr-2"></i> 4 new messages
-                        <span class="float-right text-muted text-sm">3 mins</span>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-                        <i class="fas fa-users mr-2"></i> 8 friend requests
-                        <span class="float-right text-muted text-sm">12 hours</span>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-                        <i class="fas fa-file mr-2"></i> 3 new reports
-                        <span class="float-right text-muted text-sm">2 days</span>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-                    <i class="fas fa-expand-arrows-alt"></i>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                    <i class="fas fa-th-large"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <!-- /.navbar -->
-
-    <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <!-- SidebarSearch Form -->
-        <div class="form-inline">
-            <div class="input-group" data-widget="sidebar-search">
-                <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-                <div class="input-group-append">
-                    <button class="btn btn-sidebar">
-                        <i class="fas fa-search fa-fw"></i>
-                    </button>
-                </div>
-            </div>
+<body>
+<div class="loader">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="spinner"></div>
         </div>
-
-        <!-- Sidebar Menu -->
-        <nav class="mt-2" style="min-height:100vh;height:100%">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class
-                     with font-awesome or any other icon font library -->
-                <li class="nav-item">
-                    <a href="{{ route('city.index') }}" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Cities</p>
-                    </a>
-
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('user.index') }}" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Users</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('tag.index') }}" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Tags</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('category.index') }}" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Categories</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('job.index') }}" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Jobs</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <form style="margin:20px" action="{{ route('adminlogout') }}" method="post">
-                        @csrf
-                        <button class="btn btn-danger">Logout</button>
-                    </form>
-                </li>
-            </ul>
-        </nav>
-</aside>
-
-
-<footer class="main-footer">
-    <div class=" d-none d-sm-block">
-        @yield('content')
     </div>
-</footer>
-
-<!-- Control Sidebar -->
-<aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-</aside>
-<!-- /.control-sidebar -->
 </div>
-<!-- ./wrapper -->
+<!-- End Preloader -->
 
-</body>
-</html>
+<!-- Navbar -->
+<div class="navbar-area fixed-top">
+    <!-- Menu For Mobile Device -->
+    <div class="mobile-nav">
+        <a href="/" class="logo">
+            <img src="{{asset('../img/logo-three.png')}}" alt="Logo">
+        </a>
+    </div>
+
+    <!-- Menu For Desktop Device -->
+    <div class="main-nav">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-md navbar-light">
+                <a class="navbar-brand" href="/">
+                    <img src="{{asset('../img/logo.png')}}" alt="Logo">
+                </a>
+                <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link dropdown-toggle active">Home <i class='bx bx-chevron-down'></i></a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    <a href="index.html" class="nav-link active">Home Demo One</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="index-2.html" class="nav-link">Home Demo Two</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="index-3.html" class="nav-link">Home Demo Three</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link dropdown-toggle">Pages <i class='bx bx-chevron-down'></i></a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link dropdown-toggle">Users <i
+                                            class='bx bx-chevron-down'></i></a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a href="{{asset('/login')}}" class="nav-link">Login</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{asset('/register')}}" class="nav-link">Register</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{asset('createresum')}}" class="nav-link">Add resume</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{asset('myresume')}}" class="nav-link">My Resume</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{asset('admin/employers')}}" class="nav-link">Employers</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{asset('/about')}}" class="nav-link">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <span class="tooltip-span">Hot</span>
+                            <a href="#" class="nav-link dropdown-toggle">Jobs <i class='bx bx-chevron-down'></i></a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    <a href="{{asset('/jobs')}}" class="nav-link">Jobs</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{asset('jobregister')}}" class="nav-link">Post A Job</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{asset('/blog')}}" class="nav-link dropdown-toggle">Blog </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{asset('contact')}}" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
+                    <div class="side-nav">
+                        <a class="job-right" href="{{asset('jobregister')}}">
+                            Post A Job
+                            <i class='bx bx-plus'></i>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+<script src="{{asset('../js/jquery-3.5.1.min.js')}}"></script>
+<script src="{{asset('..resources/js/popper.min.js')}}"></script>
+<script src="{{asset('..resources/js/bootstrap.min.js')}}"></script>
+<!-- Form Validator JS -->
+<script src="{{asset('../js/form-validator.min.js')}}"></script>
+<!-- Contact JS -->
+<script src="{{asset('../js/contact-form-script.js')}}"></script>
+<!-- Ajax Chip JS -->
+<script src="{{asset('../js/jquery.ajaxchimp.min.js')}}"></script>
+<!-- Meanmenu JS -->
+<script src="{{asset('../js/jquery.meanmenu.js')}}"></script>
+<!-- Nice Select JS -->
+<script src="{{asset('../js/jquery.nice-select.min.js')}}"></script>
+<!-- Mixitup JS -->
+<script src="{{asset('../js/jquery.mixitup.min.js')}}"></script>
+<!-- Popup JS -->
+<script src="{{asset('../js/jquery.magnific-popup.min.js')}}"></script>
+<!-- Odometer JS -->
+<script src="{{asset('../js/odometer.min.js')}}"></script>
+<script src="{{asset('../js/jquery.appear.js')}}"></script>
+<!-- Owl Carousel JS -->
+<script src="{{asset('../js/owl.carousel.min.js')}}"></script>
+<!-- Progressbar JS -->
+<script src="{{asset('../js/progressbar.min.js')}}"></script>
+<!-- Custom JS -->
+<script src="{{asset('../js/custom.js')}}"></script>

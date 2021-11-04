@@ -1,64 +1,86 @@
-@extends('layouts.app')
-@section('content')
-
-    <!-- Page Header Start -->
-    <div class="page-header">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="inner-header">
-              <h3>Login</h3>
+@extends('layout/index')
+<div class="user-form-area">
+    <div class="container-fluid p-0">
+        <div class="row m-0 align-items-center">
+            <div class="col-lg-6 p-0">
+                <div class="user-img">
+                    <img src="{{asset('../img/resgister-bg.jpg')}}" alt="User">
+                </div>
             </div>
-          </div>
+            <div class="col-lg-6 p-0">
+                <div class="user-content">
+                    <div class="top">
+                        <h2>Login</h2>
+                        <form action="{{asset('/logining')}}" method="get">
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="Password">
+                            </div>
+                            <button type="submit" class="btn">Login Here</button>
+                        </form>
+                    </div>
+                    <div class="end">
+                        <ul>
+                            <li>
+                                <a href="#" target="_blank">
+                                    <i class='bx bxl-facebook'></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">
+                                    <i class='bx bxl-twitter'></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">
+                                    <i class='bx bxl-linkedin'></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">
+                                    <i class='bx bxl-pinterest-alt'></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-    <!-- Page Header End -->
+</div>
+<!-- End Login -->
 
-    <!-- Content section Start -->
-    <section id="content" class="section-padding">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-5 col-md-6 col-xs-12">
-            <div class="page-login-form box">
-              <h3>
-                Login
-              </h3>
-              <form class="login-form" method="POST" action="{{ route('login') }}">
-                  @csrf
-                  <div class="form-group">
-                  <div class="input-icon">
-                    <i class="lni-user"></i>
-                      <input type="text" value="{{ old('email') }}" id="sender-email" class="form-control" name="email" placeholder="Username">
-                      @error('email')
-                      <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                      @enderror
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-icon">
-                    <i class="lni-lock"></i>
-                    <input type="password" value="{{ old('password') }}" name="password" class="form-control" placeholder="Password">
-                      @error('password')
-                      <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                      @enderror
-                  </div>
-                </div>
 
-                <button type="submit" class="btn btn-common log-btn">Submit</button>
-              </form>
-              <ul class="form-links">
-                <li class="text-center"><a href="{{ route('reg') }}">Don't have an account?</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Content section End -->
+<!-- Essential JS -->
+<!-- Essential JS -->
+<script src="{{asset('../js/jquery-3.5.1.min.js')}}"></script>
+<script src="{{asset('..resources/js/popper.min.js')}}"></script>
+<script src="{{asset('..resources/js/bootstrap.min.js')}}"></script>
+<!-- Form Validator JS -->
+<script src="{{asset('../js/form-validator.min.js')}}"></script>
+<!-- Contact JS -->
+<script src="{{asset('../js/contact-form-script.js')}}"></script>
+<!-- Ajax Chip JS -->
+<script src="{{asset('../js/jquery.ajaxchimp.min.js')}}"></script>
+<!-- Meanmenu JS -->
+<script src="{{asset('../js/jquery.meanmenu.js')}}"></script>
+<!-- Nice Select JS -->
+<script src="{{asset('../js/jquery.nice-select.min.js')}}"></script>
+<!-- Mixitup JS -->
+<script src="{{asset('../js/jquery.mixitup.min.js')}}"></script>
+<!-- Popup JS -->
+<script src="{{asset('../js/jquery.magnific-popup.min.js')}}"></script>
+<!-- Odometer JS -->
+<script src="{{asset('../js/odometer.min.js')}}"></script>
+<script src="{{asset('../js/jquery.appear.js')}}"></script>
+<!-- Owl Carousel JS -->
+<script src="{{asset('../js/owl.carousel.min.js')}}"></script>
+<!-- Progressbar JS -->
+<script src="{{asset('../js/progressbar.min.js')}}"></script>
+<!-- Custom JS -->
+<script src="{{asset('../js/custom.js')}}"></script>
+</body>
+</html>
 
-    @endsection

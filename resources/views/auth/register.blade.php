@@ -1,125 +1,115 @@
-@extends('layouts.app')
-@section('content')
+@extends('layout/index')
+<!-- Preloader -->
+<div class="loader">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="spinner"></div>
+        </div>
+    </div>
+</div>
+<!-- End Preloader -->
 
-    <!-- Page Header Start -->
-    <div class="page-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="inner-header">
-                        <h3>Create Your account</h3>
+<!-- Register -->
+<div class="user-form-area">
+    <div class="container-fluid p-0">
+        <div class="row m-0 align-items-center">
+            <div class="col-lg-6 p-0">
+                <div class="user-img">
+                    <img src="{{asset('/img/new.png')}}" alt="User">
+                </div>
+            </div>
+            <div class="col-lg-6 p-0">
+                <div class="user-content">
+                    <div class="top">
+                        <h2>Register</h2>
+                        <form action="{{route('candidateCreat')}}" method="post">
+                            @csrf
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Name" name="name">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Last Name" name="surname">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Email" name="email">
+                            </div>
+                            <div class="form-group">
+                                <input type="date" class="form-control" name="birth_day">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="Password">
+                            </div>
+                            <button type="submit" class="btn">Register Here</button>
+                        </form>
+                    </div>
+                    <div class="end">
+                        <ul>
+                            <li>
+                                <a href="#" target="_blank">
+                                    <i class='bx bxl-facebook'></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">
+                                    <i class='bx bxl-twitter'></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">
+                                    <i class='bx bxl-linkedin'></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">
+                                    <i class='bx bxl-pinterest-alt'></i>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Page Header End -->
+</div>
+<!-- End Register -->
 
-    <!-- Content section Start -->
-    <section id="content" class="section-padding">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-5 col-md-6 col-xs-12">
-                    <div class="page-login-form box">
-                        <h3>
-                            Create Your account
-                        </h3>
-                        <form class="login-form" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
-                            @csrf
-                            <input type="hidden" name="role" value="1">
-                            <div class="form-group">
-                                <div class="input-icon">
-                                    <i class="lni-user"></i>
-                                    <input type="text" value="{{ old('name') }}" class="form-control" name="name" placeholder="Name">
-                                    @if ($errors->has('name'))
-                                        <p class="text-danger">{{ $errors->first('name') }}</p>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-icon">
-                                    <i class="lni-envelope"></i>
-                                    <input type="text" class="form-control" value="{{ old('email') }}" name="email" placeholder="Email Address">
-                                    @if ($errors->has('email'))
-                                        <p class="text-danger">{{ $errors->first('email') }}</p>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-icon">
-                                    <i class="lni-lock"></i>
-                                    <input type="password" name="password" value="{{ old('password') }}" class="form-control" placeholder="Password">
-                                    @if ($errors->has('password'))
-                                        <p class="text-danger">{{ $errors->first('password') }}</p>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-icon">
-                                    <i class="lni-lock"></i>
-                                    <input type="password" name="password_confirmation" value="{{ old('password_confirmation') }}" class="form-control" placeholder="Password Confirm">
-                                    @if ($errors->has('password'))
-                                        <p class="text-danger">{{ $errors->first('password') }}</p>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-icon">
-                                    <i class="lni-unlock"></i>
-                                    <input type="number" class="form-control" value="{{ old('age') }}" name="age" placeholder="Age">
-                                   @if ($errors->has('age'))
-                                        <p class="text-danger">{{ $errors->first('age') }}</p>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-icon">
-                                    <i class="lni-unlock"></i>
-                                    <select name="city" id=""  class="form-control">
-                                        @foreach($cities as $city)
-                                            <option value="{{$city->id}}">{{$city->name}}</option>
-                                        @endforeach
-                                    </select>
-                                    @if ($errors->has('city'))
-                                        <p class="text-danger">{{ $errors->first('city') }}</p>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-icon">
-                                    <i class="lni-unlock"></i>
-                                    <input type="text" class="form-control" value="{{ old('location') }}" name="location" placeholder="location">
-                                    @if ($errors->has('location'))
-                                        <p class="text-danger">{{ $errors->first('location') }}</p>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-icon">
-                                    <i class="lni-unlock"></i>
-                                    <input type="text" class="form-control" value="{{ old('profession') }}" name="profession" placeholder="Profession">
-                                    @if ($errors->has('location'))
-                                        <p class="text-danger">{{ $errors->first('location') }}</p>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-icon">
-                                    <i class="lni-unlock"></i>
-                                    <input type="file" accept="image/png, image/gif, image/jpeg" class="form-control" name="image" placeholder="image">
-                                    @if ($errors->has('image'))
-                                        <p class="text-danger">{{ $errors->first('image') }}</p>
-                                    @endif
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-common log-btn mt-3">Register</button>
-                            <p class="text-center">Already have an account?<a href="{{route('login')}}"> Sign In</a></p>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Content section End -->
 
-@endsection
+<!-- Essential JS -->
+<script src="{{asset('../js/jquery-3.5.1.min.js')}}"></script>
+<script src="{{asset('..resources/js/popper.min.js')}}"></script>
+<script src="{{asset('..resources/js/bootstrap.min.js')}}"></script>
+<!-- Form Validator JS -->
+<script src="{{asset('../js/form-validator.min.js')}}"></script>
+<!-- Contact JS -->
+<script src="{{asset('../js/contact-form-script.js')}}"></script>
+<!-- Ajax Chip JS -->
+<script src="{{asset('../js/jquery.ajaxchimp.min.js')}}"></script>
+<!-- Meanmenu JS -->
+<script src="{{asset('../js/jquery.meanmenu.js')}}"></script>
+<!-- Nice Select JS -->
+<script src="{{asset('../js/jquery.nice-select.min.js')}}"></script>
+<!-- Mixitup JS -->
+<script src="{{asset('../js/jquery.mixitup.min.js')}}"></script>
+<!-- Popup JS -->
+<script src="{{asset('../js/jquery.magnific-popup.min.js')}}"></script>
+<!-- Odometer JS -->
+<script src="{{asset('../js/odometer.min.js')}}"></script>
+<script src="{{asset('../js/jquery.appear.js')}}"></script>
+<!-- Owl Carousel JS -->
+<script src="{{asset('../js/owl.carousel.min.js')}}"></script>
+<!-- Progressbar JS -->
+<script src="{{asset('../js/progressbar.min.js')}}"></script>
+<!-- Custom JS -->
+<script src="{{asset('../js/custom.js')}}"></script>
+</body>
+</html>
+
+{{--<form action="{{route('candidate.store')}}">--}}
+{{--    <input type="text" name="name" placeholder="enter name">--}}
+{{--    <input type="text" name="surname" placeholder="enter surname">--}}
+{{--    <input type="email" name="email" placeholder="enter email">--}}
+{{--    <input type="date" name="birth_date">--}}
+{{--    <input type="password" name="password" placeholder="password">--}}
+{{--    <input type="submit" value="grancum">--}}
+{{--</form>--}}
+

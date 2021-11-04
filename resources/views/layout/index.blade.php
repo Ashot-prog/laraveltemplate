@@ -46,7 +46,7 @@
 <div class="navbar-area fixed-top">
     <!-- Menu For Mobile Device -->
     <div class="mobile-nav">
-        <a href="index.html" class="logo">
+        <a href="/" class="logo">
             <img src="{{asset('../img/logo-three.png')}}" alt="Logo">
         </a>
     </div>
@@ -78,110 +78,49 @@
                             <a href="#" class="nav-link dropdown-toggle">Pages <i class='bx bx-chevron-down'></i></a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link dropdown-toggle">Users <i class='bx bx-chevron-down'></i></a>
+                                    <a href="#" class="nav-link dropdown-toggle">Users <i
+                                            class='bx bx-chevron-down'></i></a>
                                     <ul class="dropdown-menu">
                                         <li class="nav-item">
-                                            <a href="login.html" class="nav-link">Login</a>
+                                            <a href="{{asset('/login')}}" class="nav-link">Login</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="register.html" class="nav-link">Register</a>
+                                            <a href="{{asset('/register')}}" class="nav-link">Register</a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link dropdown-toggle">Employers <i class='bx bx-chevron-down'></i></a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="employers.html" class="nav-link">Employers</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="employer-details.html" class="nav-link">Employer Details</a>
-                                        </li>
-                                    </ul>
+                                    <a href="{{asset('createresum')}}" class="nav-link">Add resume</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="dashboard.html" class="nav-link">Dashboard</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="single-resume.html" class="nav-link">Single Resume</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="testimonials.html" class="nav-link">Testimonials</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pricing.html" class="nav-link">Pricing Plans</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="faq.html" class="nav-link">FAQ</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="coming-soon.html" class="nav-link">Coming Soon</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="404.html" class="nav-link">404 Error Page</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="terms-conditions.html" class="nav-link">Terms & COnditions</a>
+                                    <a href="{{asset('myresume')}}" class="nav-link">My Resume</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="about.html" class="nav-link">About</a>
+                            <a href="{{asset('/about')}}" class="nav-link">About</a>
                         </li>
                         <li class="nav-item">
                             <span class="tooltip-span">Hot</span>
                             <a href="#" class="nav-link dropdown-toggle">Jobs <i class='bx bx-chevron-down'></i></a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item">
-                                    <a href="jobs.html" class="nav-link">Jobs</a>
+                                    <a href="{{asset('/jobs')}}" class="nav-link">Jobs</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="favourite-jobs.html" class="nav-link">Favourite Jobs</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="job-details.html" class="nav-link">Job Details</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{asset('admin/jobregister')}}" class="nav-link">Post A Job</a>
+                                    <a href="{{asset('jobregister')}}" class="nav-link">Post A Job</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <span class="tooltip-span two">New</span>
-                            <a href="#" class="nav-link dropdown-toggle">Candidates <i class='bx bx-chevron-down'></i></a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a href="candidates.html" class="nav-link">Candidates</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="candidate-details.html" class="nav-link">Candidate Details</a>
-                                </li>
-                            </ul>
+                            <a href="{{asset('/blog')}}" class="nav-link dropdown-toggle">Blog </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link dropdown-toggle">Blog <i class='bx bx-chevron-down'></i></a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a href="blog.html" class="nav-link">Blog</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="blog-details.html" class="nav-link">Blog Details</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{asset('admin/companyregister')}}" class="nav-link">Contact</a>
+                            <a href="{{asset('contact')}}" class="nav-link">Contact</a>
                         </li>
                     </ul>
                     <div class="side-nav">
-                        <a class="login-left" href="admin/register">
-                            <i class="flaticon-enter"></i>
-                            Login/Register
-                        </a>
-                        <a class="job-right" href="{{asset('admin/jobregister')}}">
+                        <a class="job-right" href="{{asset('jobregister')}}">
                             Post A Job
                             <i class='bx bx-plus'></i>
                         </a>
@@ -191,3 +130,29 @@
         </div>
     </div>
 </div>
+<script src="{{asset('../js/jquery-3.5.1.min.js')}}"></script>
+<script src="{{asset('..resources/js/popper.min.js')}}"></script>
+<script src="{{asset('..resources/js/bootstrap.min.js')}}"></script>
+<!-- Form Validator JS -->
+<script src="{{asset('../js/form-validator.min.js')}}"></script>
+<!-- Contact JS -->
+<script src="{{asset('../js/contact-form-script.js')}}"></script>
+<!-- Ajax Chip JS -->
+<script src="{{asset('../js/jquery.ajaxchimp.min.js')}}"></script>
+<!-- Meanmenu JS -->
+<script src="{{asset('../js/jquery.meanmenu.js')}}"></script>
+<!-- Nice Select JS -->
+<script src="{{asset('../js/jquery.nice-select.min.js')}}"></script>
+<!-- Mixitup JS -->
+<script src="{{asset('../js/jquery.mixitup.min.js')}}"></script>
+<!-- Popup JS -->
+<script src="{{asset('../js/jquery.magnific-popup.min.js')}}"></script>
+<!-- Odometer JS -->
+<script src="{{asset('../js/odometer.min.js')}}"></script>
+<script src="{{asset('../js/jquery.appear.js')}}"></script>
+<!-- Owl Carousel JS -->
+<script src="{{asset('../js/owl.carousel.min.js')}}"></script>
+<!-- Progressbar JS -->
+<script src="{{asset('../js/progressbar.min.js')}}"></script>
+<!-- Custom JS -->
+<script src="{{asset('../js/custom.js')}}"></script>

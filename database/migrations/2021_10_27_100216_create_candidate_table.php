@@ -18,7 +18,7 @@ class CreateCandidateTable extends Migration
             $table->string('name');
             $table->string('role')->default('0');
             $table->string('surname');
-            $table->string('mail');
+            $table->string('email');
             $table->string('password');
             $table->string('birth_date');
             $table->timestamps();

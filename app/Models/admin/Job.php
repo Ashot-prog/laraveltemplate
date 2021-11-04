@@ -10,6 +10,6 @@ class Job extends Model
     use HasFactory;
 
     protected $fillable =[
-        'title','image','jobs_count','sort'
+        'title','image','jobs_count','sort','category','location', 'job_type', 'salary', 'employer', 'industry','level','experience'
     ];
 }
