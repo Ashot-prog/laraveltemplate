@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Application;
 use App\Models\Resume;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
@@ -11,7 +12,9 @@ class CompanyController extends Controller
 {
     public function index()
     {
+        $application = new Application();
         return view('frontend.company.index');
+
     }
 
     public function create()

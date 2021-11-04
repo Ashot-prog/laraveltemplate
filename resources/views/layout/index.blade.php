@@ -52,8 +52,8 @@
     </div>
 
     <!-- Menu For Desktop Device -->
-    <div class="main-nav">
-        <div class="container-fluid">
+    <div class="main-nav"  >
+        <div class="container-fluid" >
             <nav class="navbar navbar-expand-md navbar-light">
                 <a class="navbar-brand" href="/">
                     <img src="{{asset('../img/logo.png')}}" alt="Logo">
