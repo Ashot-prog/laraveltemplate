@@ -9,12 +9,12 @@ class JobController extends Controller
 {
     public function index()
     {
-        //
+        return view('frontend.company.job.index');
     }
 
     public function create()
     {
-        return view('jobs.create');
+        return view('frontend.company.job.create');
     }
 
     public function store(Request $request)

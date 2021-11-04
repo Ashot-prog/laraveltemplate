@@ -23,62 +23,26 @@ Route::get('/blog', function () {
 Route::get('/contact', function () {
     return view('frontend.contact.index');
 });
-Route::get('/register', function () {
-    return view('auth.register');
-});
-Route::get('/jobregister', function () {
-    return view('frontend.job.create');
-});
-Route::get('/login', function () {
-    return view('auth.login');
-});
-Route::get('/logining',function (){
-    return view('index');
-});
-Route::get('/about',function (){
-    return view('frontend.about.about');
-});
+Route::get('/register',[\App\Http\Controllers\Auth\RegisterController::class,'create']);
+Route::get('/jobregister',[\App\Http\Controllers\JobController::class,'create']);
+Route::get('/login',[\App\Http\Controllers\Auth\LoginController::class,'index']);
+Route::get('/logining',[\App\Http\Controllers\Auth\LoginController::class,'login']);
+Route::get('/about', [\App\Http\Controllers\AboutController::class, 'index'])->name('about');
 Route::post('/add', [RegisterController::class, 'store'])->name('create');
 Route::post('/add', [\App\Http\Controllers\JobController::class, 'store'])->name('addJob');
-Route::get('/jobs', function () {
-    return view('frontend.job.index');
-});
-Route::get('/company', function () {
-    return view('frontend.company.layouts.app');
-});
-Route::get('/createresum', function () {
-    return view('frontend.candidate.resume.add-resume');
-});
-Route::get('/myresume', function () {
-    return view('frontend.candidate.resume.resume');
-});
-Route::get('/category', function () {
-    return view('frontend.company.layouts.app');
-});
+Route::get('/jobs', [\App\Http\Controllers\JobController::class, 'index'])->name('jobs');
+Route::get('/company', [\App\Http\Controllers\CompanyController::class, 'index'])->name('company');
+Route::get('/createresum', [\App\Http\Controllers\ResumeController::class, 'create'])->name('createresume');
+Route::get('/myresume', [\App\Http\Controllers\ResumeController::class, 'index'])->name('resume');
+
 Route::prefix('admin')->group(function () {
     Route::get('/', function (){
         return view('admin.dashboard');
     });
-    Route::get('/register', function () {
-        return view('admin.candidate.create');
-    });
-    Route::get('/edit', function () {
-        return view('admin.candidate.edit');
-    });
-    Route::get('/jobregister', function () {
-        return view('admin.jobs.create');
-    });
-    Route::get('/employers', function () {
-        return view('admin.employers.index');
-    });
-    Route::get('/companyregister', function () {
-        return view('admin.company.create');
-    });
-    Route::get('/companyedit', function () {
-        return view('admin.company.edit');
-    });
+    Route::get('/jobs',[\App\Http\Controllers\JobController::class,'index']);
+    Route::get('/about', [\App\Http\Controllers\AboutController::class, 'index'])->name('about');
+    Route::get('/company', [\App\Http\Controllers\CompanyController::class, 'index'])->name('company');
 
-    Route::post('/candidate', [CandidateController::class, 'store'])->name('candidateCreat');
 });
 
 
