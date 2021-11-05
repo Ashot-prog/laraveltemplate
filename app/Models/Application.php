@@ -10,10 +10,6 @@ class Application extends Model
     use HasFactory;
 
     protected $fillable =[
-        'candidate_id','job_id'
+        'candidate_id','company_id'
     ];
-    public function applications()
-    {
-        return $this->hasMany(Application::class,'company_id','id');
-    }
 }

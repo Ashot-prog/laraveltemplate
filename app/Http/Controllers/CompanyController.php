@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Application;
 use App\Models\Candidate;
+use App\Models\Company;
 use App\Models\Resume;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
@@ -12,12 +13,10 @@ use App\http\Controllers\admin\Controller;
 
 class CompanyController extends Controller
 {
-    public function index()
+    public function index(Company $company)
     {
-        $applications= Application::query()->get();
-        $candidates= Candidate::applications();
-
-        return view('frontend.company.index',compact('applications','candidates'));
+        $candidates = $company->getApplications();
+        return view('frontend.company.index',compact('candidates'));
 
     }
 

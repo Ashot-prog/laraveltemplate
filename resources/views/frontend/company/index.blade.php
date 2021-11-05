@@ -18,6 +18,7 @@
 <section class="feedback-area two pt-100">
     <div class="container">
         <div class="row">
+            {{print_r($candidates)}}{{die()}}
                 @foreach($candidates as $candidate)
                         <div class="col-lg-6">
                             <div class="feedback-item">

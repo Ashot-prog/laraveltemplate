@@ -47,6 +47,6 @@ class Candidate extends Authenticatable
     ];
     function applications()
     {
-        return $this->hasMany(Application::class,'candidate_id','id');
+        return $this->hasMany(Application::class);
     }
 }
