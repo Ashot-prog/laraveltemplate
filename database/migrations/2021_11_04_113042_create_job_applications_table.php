@@ -13,18 +13,10 @@ class CreateJobApplicationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('job_applications', function (Blueprint $table) {
+        Schema::create('applications', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('job_id');
             $table->unsignedBigInteger('candidate_id');
-            $table->foreign('candidate_id')
-                ->references('id')
-                ->on('candidate')
-                ->onDelete('cascade');
-            $table->foreign('job_id')
-                ->references('id')
-                ->on('job')
-                ->onDelete('cascade');
             $table->timestamps();
         });
     }

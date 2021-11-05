@@ -15,15 +15,11 @@ class CreateResumeTable extends Migration
     {
         Schema::create('resume', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('candidate_id');
+            $table->string('candidate_id');
             $table->string('level');
             $table->integer('number');
             $table->string('experience');
             $table->string('industry');
-            $table->foreign('candidate_id')
-                ->references('id')
-                ->on('candidate')
-                ->onDelete('cascade');
             $table->timestamps();
         });
     }

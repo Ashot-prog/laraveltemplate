@@ -13,10 +13,9 @@ class CreateCandidateTable extends Migration
      */
     public function up()
     {
-        Schema::create('candidate', function (Blueprint $table) {
+        Schema::create('candidates', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('role')->default('0');
             $table->string('surname');
             $table->string('email');
             $table->string('password');
