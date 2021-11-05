@@ -24,16 +24,19 @@ Route::get('/contact', function () {
     return view('frontend.contact.index');
 });
 Route::post('/register',[\App\Http\Controllers\Auth\RegisterController::class,'create']);
-Route::post('/jobregister',[\App\Http\Controllers\JobController::class,'create']);
 Route::get('/login',[\App\Http\Controllers\Auth\LoginController::class,'index']);
 Route::post('/logining',[\App\Http\Controllers\Auth\LoginController::class,'login']);
 Route::get('/about', [\App\Http\Controllers\AboutController::class, 'index'])->name('about');
 Route::post('/add', [RegisterController::class, 'store'])->name('create');
 Route::post('/add', [\App\Http\Controllers\JobController::class, 'store'])->name('addJob');
 Route::get('/jobs', [\App\Http\Controllers\JobController::class, 'index'])->name('jobs');
-Route::get('/company', [\App\Http\Controllers\CompanyController::class, 'index'])->name('company');
 Route::post('/createresum', [\App\Http\Controllers\ResumeController::class, 'create'])->name('createresume');
 Route::get('/myresume', [\App\Http\Controllers\ResumeController::class, 'index'])->name('resume');
+
+Route::prefix('company')->group(function () {
+    Route::get('/',[\App\Http\Controllers\CompanyController::class, 'index'])->name('company');
+    Route::post('/jobregister',[\App\Http\Controllers\JobController::class,'create']);
+});
 
 Route::prefix('admin')->group(function () {
     Route::get('/', function (){

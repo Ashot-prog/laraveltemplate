@@ -15,6 +15,7 @@ class CreateCompanyTable extends Migration
     {
         Schema::create('company', function (Blueprint $table) {
             $table->id();
+            $table->string('role')->default('1');
             $table->unsignedBigInteger('candidate_id');
             $table->string('companyName');
             $table->integer('phoneNumber');

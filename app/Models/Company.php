@@ -14,7 +14,7 @@ class Company extends Model
         'companyName','phoneNumber','level','experience'
     ];
     public function getApplications(){
-        return $this->belongsToMany(Candidate::class, Application::class, 'candidate_id', 'company_id');
+        return $this->belongsToMany(Candidate::class, 'applications', 'candidate_id', 'company_id');
     }
 
 

@@ -107,9 +107,6 @@
                                 <li class="nav-item">
                                     <a href="{{asset('/jobs')}}" class="nav-link">Jobs</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="{{asset('jobregister')}}" class="nav-link">Post A Job</a>
-                                </li>
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -119,12 +116,6 @@
                             <a href="{{asset('contact')}}" class="nav-link">Contact</a>
                         </li>
                     </ul>
-                    <div class="side-nav">
-                        <a class="job-right" href="{{asset('jobregister')}}">
-                            Post A Job
-                            <i class='bx bx-plus'></i>
-                        </a>
-                    </div>
                 </div>
             </nav>
         </div>
