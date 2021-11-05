@@ -12,4 +12,8 @@ class Application extends Model
     protected $fillable =[
         'candidate_id','job_id'
     ];
+    public function applications()
+    {
+        return $this->hasMany(Application::class,'company_id','id');
+    }
 }

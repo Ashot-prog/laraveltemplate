@@ -15,7 +15,7 @@ class CompanyController extends Controller
     public function index()
     {
         $applications= Application::query()->get();
-        $candidates= Candidate::query()->get();
+        $candidates= Candidate::applications();
 
         return view('frontend.company.index',compact('applications','candidates'));
 

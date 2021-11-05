@@ -12,6 +12,8 @@ class Candidate extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+
+
     /**
      * The attributes that are mass assignable.
      *
@@ -43,4 +45,8 @@ class Candidate extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    function applications()
+    {
+        return $this->hasMany(Application::class,'candidate_id','id');
+    }
 }
