@@ -8,7 +8,15 @@
     </div>
 </div>
 <!-- End Preloader -->
-
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <!-- Register -->
 <div class="user-form-area">
     <div class="container-fluid p-0">
@@ -22,7 +30,7 @@
                 <div class="user-content">
                     <div class="top">
                         <h2>Register</h2>
-                        <form action="{{route('candidateCreat')}}" method="post">
+                        <form action="{{asset('candidateCreat')}}" method="post">
                             @csrf
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Name" name="name">
@@ -34,10 +42,10 @@
                                 <input type="email" class="form-control" placeholder="Email" name="email">
                             </div>
                             <div class="form-group">
-                                <input type="date" class="form-control" name="birth_day">
+                                <input type="date" class="form-control" name="birth_date">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Password">
+                                <input type="password" class="form-control" placeholder="Password" name="password">
                             </div>
                             <button type="submit" class="btn">Register Here</button>
                         </form>

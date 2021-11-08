@@ -10,6 +10,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\http\Controllers\admin\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class CompanyController extends Controller
 {
@@ -33,8 +34,11 @@ class CompanyController extends Controller
             'level' => ['required'],
             'experience' => ['required']
         ]);
-        Resume::create($request->all());
-        return redirect()->route('index');
+        $company = Company::create($request->all());
+        if ($company) {
+            Auth::login($company);
+            return redirect(route('/'));
+        }
     }
 
     public function update(Request $request, Resume $resume)

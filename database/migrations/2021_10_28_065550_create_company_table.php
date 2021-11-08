@@ -13,18 +13,13 @@ class CreateCompanyTable extends Migration
      */
     public function up()
     {
-        Schema::create('company', function (Blueprint $table) {
+        Schema::create('companies', function (Blueprint $table) {
             $table->id();
             $table->string('role')->default('1');
-            $table->unsignedBigInteger('candidate_id');
             $table->string('companyName');
             $table->integer('phoneNumber');
             $table->string('level');
             $table->string('experience');
-            $table->foreign('candidate_id')
-                ->references('id')
-                ->on('candidate')
-                ->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -16,15 +16,18 @@ use App\Http\Controllers\auth\RegisterController;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('/');
 Route::get('/blog', function () {
     return view('frontend.blog.blog');
 });
 Route::get('/contact', function () {
     return view('frontend.contact.index');
 });
-Route::post('/register',[\App\Http\Controllers\Auth\RegisterController::class,'create']);
+Route::get('/register',[\App\Http\Controllers\Auth\RegisterController::class,'create']);
+Route::post('/candidateCreat',[\App\Http\Controllers\Auth\RegisterController::class,'store']);
+Route::get('/candidate',[\App\Http\Controllers\Auth\RegisterController::class,'index']);
 Route::get('/login',[\App\Http\Controllers\Auth\LoginController::class,'index']);
+Route::get('/logout',function (){\Illuminate\Support\Facades\Auth::logout();});
 Route::post('/logining',[\App\Http\Controllers\Auth\LoginController::class,'login']);
 Route::get('/about', [\App\Http\Controllers\AboutController::class, 'index'])->name('about');
 Route::post('/add', [RegisterController::class, 'store'])->name('create');
@@ -34,7 +37,8 @@ Route::post('/createresum', [\App\Http\Controllers\ResumeController::class, 'cre
 Route::get('/myresume', [\App\Http\Controllers\ResumeController::class, 'index'])->name('resume');
 
 Route::prefix('company')->group(function () {
-    Route::get('/',[\App\Http\Controllers\CompanyController::class, 'index'])->name('company');
+    Route::get('/register',[\App\Http\Controllers\CompanyController::class, 'create'])->name('company');
+    Route::post('/',[\App\Http\Controllers\CompanyController::class, 'store']);
     Route::post('/jobregister',[\App\Http\Controllers\JobController::class,'create']);
 });
 

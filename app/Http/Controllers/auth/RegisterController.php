@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Models\admin\Candidate;
+use App\Models\Candidate;
 use App\Http\Controllers\admin\Controller;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -38,26 +40,34 @@ class RegisterController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => ['required'],
-            'surname' => ['required'],
-            'mail' => ['required'],
-            'password' => ['required'],
-            'birth_date' => ['required']
+        if (Auth::check()){
+            return redirect(route('/'));
+        }
+        $validated = $request->validate([
+            'name' => 'required|string',
+            'surname' => 'required|string',
+            'email' => 'required|string|email',
+            'birth_date' => 'required|string',
+            'password' => 'required|string'
         ]);
-        Candidate::create($request->all());
-        return redirect()->route('/');
+
+        $candidate = Candidate::create($validated);
+        if ($candidate) {
+            Auth::login($candidate);
+            return redirect(route('/'));
+        }
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -68,7 +78,7 @@ class RegisterController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -79,8 +89,8 @@ class RegisterController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Candidate $candidate)
@@ -103,7 +113,7 @@ class RegisterController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($candidate)

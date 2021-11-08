@@ -23,22 +23,19 @@
                 <div class="user-content">
                     <div class="top">
                         <h2>Company Register</h2>
-                        <form action="" method="post">
+                        <form action="{{asset('/company')}}" method="post">
                             @csrf
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Name" name="name">
+                                <input type="text" class="form-control" placeholder="CompanyName" name="companyName">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Last Name" name="surname">
+                                <input type="text" class="form-control" placeholder="Level" name="level">
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Email" name="email">
+                                <input type="text" class="form-control" placeholder="Experience" name="experience">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="phone_number" placeholder="phoneNumber">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Password">
+                                <input type="text" class="form-control" name="phoneNumber" placeholder="PhoneNumber">
                             </div>
                             <button type="submit" class="btn">Register Here</button>
                         </form>

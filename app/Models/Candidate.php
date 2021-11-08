@@ -6,6 +6,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Testing\Fluent\Concerns\Has;
 use Laravel\Sanctum\HasApiTokens;
 
 class Candidate extends Authenticatable
@@ -45,8 +47,8 @@ class Candidate extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    function applications()
-    {
-        return $this->hasMany(Application::class);
+
+    public function setPasswordAttribute($password){
+        $this->attributes['password']=Hash::make($password);
     }
 }

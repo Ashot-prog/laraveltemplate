@@ -11,12 +11,13 @@
                 <div class="user-content">
                     <div class="top">
                         <h2>Login</h2>
-                        <form action="{{asset('/logining')}}" method="get">
+                        <form action="{{asset('/logining')}}" method="post">
+                            @csrf
                             <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Email">
+                                <input type="email" name="email" class="form-control" placeholder="Email">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Password">
+                                <input type="password" name="password" class="form-control" placeholder="Password">
                             </div>
                             <button type="submit" class="btn">Login Here</button>
                         </form>
