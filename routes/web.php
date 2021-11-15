@@ -27,7 +27,7 @@ Route::get('/register',[\App\Http\Controllers\Auth\RegisterController::class,'cr
 Route::post('/candidateCreat',[\App\Http\Controllers\Auth\RegisterController::class,'store']);
 Route::get('/candidate',[\App\Http\Controllers\Auth\RegisterController::class,'index']);
 Route::get('/login',[\App\Http\Controllers\Auth\LoginController::class,'index']);
-Route::get('/logout',function (){\Illuminate\Support\Facades\Auth::logout();});
+Route::get('/logout',[\App\Http\Controllers\Auth\LoginController::class,'logout']);
 Route::post('/logining',[\App\Http\Controllers\Auth\LoginController::class,'login']);
 Route::get('/about', [\App\Http\Controllers\AboutController::class, 'index'])->name('about');
 Route::post('/add', [RegisterController::class, 'store'])->name('create');

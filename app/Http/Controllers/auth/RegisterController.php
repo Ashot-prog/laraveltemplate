@@ -19,7 +19,7 @@ class RegisterController extends Controller
 
     public function index()
     {
-        //
+        $this->middleware('guest');
     }
 
     public function __construct()

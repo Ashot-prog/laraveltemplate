@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('../css/bootstrap.min.css')}}">
     <!-- Meanmenu CSS -->
@@ -52,8 +52,8 @@
     </div>
 
     <!-- Menu For Desktop Device -->
-    <div class="main-nav"  >
-        <div class="container-fluid" >
+    <div class="main-nav">
+        <div class="container-fluid">
             <nav class="navbar navbar-expand-md navbar-light">
                 <a class="navbar-brand" href="/">
                     <img src="{{asset('../img/logo.png')}}" alt="Logo">
@@ -77,18 +77,6 @@
                         <li class="nav-item">
                             <a href="#" class="nav-link dropdown-toggle">Pages <i class='bx bx-chevron-down'></i></a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link dropdown-toggle">Users <i
-                                            class='bx bx-chevron-down'></i></a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="{{asset('/login')}}" class="nav-link">Login</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="{{asset('/register')}}" class="nav-link">Register</a>
-                                        </li>
-                                    </ul>
-                                </li>
                                 <li class="nav-item">
                                     <a href="{{asset('createresum')}}" class="nav-link">Add resume</a>
                                 </li>
@@ -115,6 +103,18 @@
                         <li class="nav-item">
                             <a href="{{asset('contact')}}" class="nav-link">Contact</a>
                         </li>
+                        @if(\Illuminate\Support\Facades\Auth::check())
+                            <li class="nav-item">
+                                <a href="{{asset('/logout')}}" class="nav-link">logout</a>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a href="{{asset('/login')}}" class="nav-link">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{asset('/register')}}" class="nav-link">Register</a>
+                            </li>
+                        @endif
                     </ul>
                 </div>
             </nav>
