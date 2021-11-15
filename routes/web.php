@@ -35,7 +35,7 @@ Route::post('/add', [\App\Http\Controllers\JobController::class, 'store'])->name
 Route::get('/jobs', [\App\Http\Controllers\JobController::class, 'index'])->name('jobs');
 Route::post('/createresum', [\App\Http\Controllers\ResumeController::class, 'create'])->name('createresume');
 Route::get('/myresume', [\App\Http\Controllers\ResumeController::class, 'index'])->name('resume');
-
+Route::get('/favoritejob', [\App\Http\Controllers\FavoriteJobController::class, 'store']);
 Route::prefix('company')->group(function () {
     Route::get('/register',[\App\Http\Controllers\CompanyController::class, 'create'])->name('company');
     Route::post('/',[\App\Http\Controllers\CompanyController::class, 'store']);

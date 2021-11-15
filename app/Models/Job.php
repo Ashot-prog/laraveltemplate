@@ -12,4 +12,8 @@ class Job extends Model
     protected $fillable =[
         'category','location','job_type','salary','employer','industry','level','experience'
     ];
+
+    public function userFavorites(){
+        return $this->belongsToMany(Candidate::class, 'favorite_jobs');
+    }
 }

@@ -55,7 +55,6 @@ class RegisterController extends Controller
             'birth_date' => 'required|string',
             'password' => 'required|string'
         ]);
-
         $candidate = Candidate::create($validated);
         if ($candidate) {
             Auth::login($candidate);

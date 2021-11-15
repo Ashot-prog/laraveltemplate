@@ -5,12 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\Job;
 use Illuminate\Http\Request;
 use App\http\Controllers\admin\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class JobController extends Controller
 {
     public function index()
     {
-        return view('frontend.company.job.index');
+        $jobs = Job::withCount(['userFavorites' => function ($query) {
+            $query->where('candidates.id', Auth::id());
+        }])->get();
+
+        return view("frontend.company.job.index",compact('jobs'));
     }
 
     public function create()
