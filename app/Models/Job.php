@@ -9,11 +9,12 @@ class Job extends Model
 {
     use HasFactory;
 
-    protected $fillable =[
-        'category','location','job_type','salary','employer','industry','level','experience'
+    protected $fillable = [
+        'company_id', 'category', 'location', 'job_type', 'salary', 'employer', 'industry', 'level', 'experience'
     ];
 
-    public function userFavorites(){
+    public function userFavorites()
+    {
         return $this->belongsToMany(Candidate::class, 'favorite_jobs');
     }
 }

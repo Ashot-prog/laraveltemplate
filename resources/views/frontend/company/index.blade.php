@@ -15,24 +15,46 @@
 {{--    @if($application == $user)--}}
 
 <!-- Feedback -->
+<h2 class="border border-dark">Jobs</h2>
 <section class="feedback-area two pt-100">
     <div class="container">
         <div class="row">
-                @foreach($candidates as $candidate)
-                        <div class="col-lg-6">
-                            <div class="feedback-item">
-                                <h3>{{$candidate['name']}}{{$candidate['surname']}}</h3>
-                                <span>{{$candidate['email']}}</span>
-                                <p>{{$candidate['about']}}</p>
-                                <a href="{{route('resume')}}">My Resume</a>
-                                <h4>
-                                    <i class="flaticon-left-quote"></i>
-                                    birth date{{$candidate['birth_date']}}
-                                </h4>
-                                <img src="{{asset('../img/home-one/feedback1.jpg')}}" alt="Feedback">
-                            </div>
-                        </div>
-                @endforeach
+            @foreach($jobs as $job)
+                <div class="employer-item">
+                    <h3>{{$job->job_type}}</h3>
+                    <ul>
+                        <li>
+                            <i class="bx bx-location-plus"></i>
+                            {{$job->location}}
+                        </li>
+                        <li>{{$job->employer}}</li>
+                    </ul>
+                    <p>{{$job->industry}}/level{{$job->level}}/{{$job->experience}}</p>
+                    <span class="span-two">FULL TIME</span>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+<h2 class="border border-danger">Application</h2>
+<section class="feedback-area two pt-100">
+    <div class="container">
+        <div class="row">
+            @foreach($candidates as $candidate)
+                <div class="col-lg-6">
+                    <div class="feedback-item">
+                        <h3>{{$candidate['name']}}{{$candidate['surname']}}</h3>
+                        <span>{{$candidate['email']}}</span>
+                        <p>{{$candidate['about']}}</p>
+                        <a href="{{route('resume')}}">My Resume</a>
+                        <h4>
+                            <i class="flaticon-left-quote"></i>
+                            birth date{{$candidate['birth_date']}}
+                        </h4>
+                        <img src="{{asset('../img/home-one/feedback1.jpg')}}" alt="Feedback">
+                    </div>
+                </div>
+            @endforeach
         </div>
     </div>
 </section>

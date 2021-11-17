@@ -37,7 +37,7 @@
                         <h3>{{$job->job_type}}</h3>
                         <ul>
                             <li>
-                                <i class="flaticon-send"></i>
+                                <i class="bx bx-location-plus"></i>
                                 {{$job->location}}
                             </li>
                             <li>{{$job->employer}}</li>

@@ -35,7 +35,18 @@ class JobController extends Controller
             'level' => ['required'],
             'experience' => ['required']
         ]);
-        Job::create($request->all());
+        $data = [
+            'category' => $request->get('category'),
+            'location' => $request->get('location'),
+            'job_type' => $request->get('job_type'),
+            'salary' => $request->get('salary'),
+            'employer' => $request->get('employer'),
+            'industry' => $request->get('industry'),
+            'level' => $request->get('level'),
+            'experience' => $request->get('experience'),
+            'company_id' => Auth::id(),
+        ];
+        Job::create($data);
         return redirect()->route('admin.job.index');
     }
 

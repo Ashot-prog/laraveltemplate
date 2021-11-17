@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Application;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 

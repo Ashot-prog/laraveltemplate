@@ -5,20 +5,22 @@ namespace App\Http\Controllers;
 use App\Models\Application;
 use App\Models\Candidate;
 use App\Models\Company;
+use App\Models\Job;
 use App\Models\Resume;
 use App\Models\User;
+use App\Support\CompanyService;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\http\Controllers\admin\Controller;
 use Illuminate\Support\Facades\Auth;
+use function GuzzleHttp\Promise\all;
 
 class CompanyController extends Controller
 {
-    public function index(Company $company)
-    {
-        $candidates = $company->getApplications();
-        return view('frontend.company.index',compact('candidates'));
-
+    public function index(CompanyService $companyService)
+    {;
+        $data = $companyService->getCompanyData();
+        return view('frontend.company.index',$data);
     }
 
     public function create()
