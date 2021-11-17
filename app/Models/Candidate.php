@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
@@ -48,7 +49,16 @@ class Candidate extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
+
     public function setPasswordAttribute($password){
         $this->attributes['password']=Hash::make($password);
+    }
+
+    public function applications() {
+        return $this->hasMany(Application::class, 'company_id','id');
+    }
+    public function jobs() {
+        return $this->hasMany(Job::class, 'company_id','id');
     }
 }

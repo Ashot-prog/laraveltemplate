@@ -17,10 +17,12 @@ use function GuzzleHttp\Promise\all;
 
 class CompanyController extends Controller
 {
-    public function index(CompanyService $companyService)
-    {;
-        $data = $companyService->getCompanyData();
-        return view('frontend.company.index',$data);
+    public function index()
+    {
+        $company = Candidate::where('id', Auth::id())->first();
+        $applications = $company->applications;
+        $jobs = $company->jobs;
+        return view('frontend.company.index', compact('applications', 'jobs'));
     }
 
     public function create()

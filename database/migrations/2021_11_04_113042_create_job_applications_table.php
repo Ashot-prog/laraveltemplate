@@ -15,8 +15,12 @@ class CreateJobApplicationsTable extends Migration
     {
         Schema::create('applications', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('job_id');
             $table->unsignedBigInteger('candidate_id');
+            $table->unsignedBigInteger('company_id');
+            $table->string('level');
+            $table->integer('number');
+            $table->string('experience');
+            $table->string('industry');
             $table->timestamps();
         });
     }

@@ -40,16 +40,23 @@
 <section class="feedback-area two pt-100">
     <div class="container">
         <div class="row">
-            @foreach($candidates as $candidate)
+            @foreach($applications as $application)
                 <div class="col-lg-6">
                     <div class="feedback-item">
-                        <h3>{{$candidate['name']}}{{$candidate['surname']}}</h3>
-                        <span>{{$candidate['email']}}</span>
-                        <p>{{$candidate['about']}}</p>
-                        <a href="{{route('resume')}}">My Resume</a>
+                        <h3>{{$application->candidate->name}}{{$application->candidate->surname}}</h3>
+                        <span>{{$application->candidate->email}}</span>
+                        <p>{{$application->candidate->about}}</p>
                         <h4>
-                            <i class="flaticon-left-quote"></i>
-                            birth date{{$candidate['birth_date']}}
+                            Level: {{$application->level}}
+                        </h4>
+                        <h4>
+                            Number: {{$application->number}}
+                        </h4>
+                        <h4>
+                            Experience: {{$application->experience}}
+                        </h4>
+                        <h4>
+                            Industry: {{$application->industry}}
                         </h4>
                         <img src="{{asset('../img/home-one/feedback1.jpg')}}" alt="Feedback">
                     </div>
