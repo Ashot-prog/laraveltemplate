@@ -1,5 +1,7 @@
 @extends('frontend.company.layout.layout')
-
+<style>svg {
+        width: 15%;
+    }</style>
 <div class="page-title-area">
     <div class="d-table">
         <div class="d-table-cell">
@@ -36,6 +38,7 @@
         </div>
     </div>
 </section>
+<div style="width: 50%;text-align: center; margin-left: 25%">{{ $jobs->links() }}</div>
 <h2 class="border border-danger">Application</h2>
 <section class="feedback-area two pt-100">
     <div class="container">
@@ -43,9 +46,6 @@
             @foreach($applications as $application)
                 <div class="col-lg-6">
                     <div class="feedback-item">
-                        <h3>{{$application->candidate->name}}{{$application->candidate->surname}}</h3>
-                        <span>{{$application->candidate->email}}</span>
-                        <p>{{$application->candidate->about}}</p>
                         <h4>
                             Level: {{$application->level}}
                         </h4>
@@ -65,6 +65,7 @@
         </div>
     </div>
 </section>
+<div style="width: 50%;text-align: center; margin-left: 25%">{{ $applications->links() }}</div>
 <!-- End Feedback -->
 
 <!-- Footer -->

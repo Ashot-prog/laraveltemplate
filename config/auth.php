@@ -36,13 +36,13 @@ return [
     */
 
     'guards' => [
-        'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
-        ],
         'candidate' => [
             'driver' => 'session',
             'provider' => 'candidate',
+        ],
+        'web' => [
+            'driver' => 'session',
+            'provider' => 'users',
         ],
     ],
 
@@ -66,7 +66,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => App\Models\Candidate::class,
         ],
         'candidate' => [
             'driver' => 'eloquent',
