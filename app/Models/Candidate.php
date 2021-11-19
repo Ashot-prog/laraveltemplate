@@ -66,22 +66,4 @@ class Candidate extends Authenticatable
         return $this->hasMany(Job::class, 'company_id', 'id');
     }
 
-    public function getJobs()
-    {
-        $jobs = DB::table('jobs')
-            ->join('candidates', 'jobs.company_id', '=', 'candidates.id')
-            ->where('candidates.id', Auth::id())
-            ->paginate(1,['*'],'app_job');
-        return $jobs;
-    }
-
-    public function getApplications()
-    {
-        $applications = DB::table('applications')
-            ->join('candidates', 'applications.company_id', '=', 'candidates.id')
-            ->where('candidates.id', Auth::id())
-            ->paginate(1,['*'],'app_page');
-        return $applications;
-    }
-
 }

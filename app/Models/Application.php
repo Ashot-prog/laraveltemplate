@@ -17,4 +17,5 @@ class Application extends Model
     {
         return $this->belongsTo(Candidate::class, 'candidate_id', 'id');
     }
+
 }

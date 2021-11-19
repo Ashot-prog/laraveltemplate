@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Job extends Model
 {
@@ -17,4 +18,10 @@ class Job extends Model
     {
         return $this->belongsToMany(Candidate::class, 'favorite_jobs');
     }
+
+    public function company()
+    {
+        return $this->belongsTo(Candidate::class, 'company_id', 'id');
+    }
+
 }

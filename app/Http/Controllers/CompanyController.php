@@ -17,11 +17,11 @@ use function GuzzleHttp\Promise\all;
 
 class CompanyController extends Controller
 {
-    public function index(Request $request)
+    public function index(Job $job, Application $application)
     {
-        $company = Auth::user();
-        $applications = $company->getApplications();
-        $jobs = $company->getJobs();
+        $company =Auth::user();
+        $jobs = $company->jobs()->paginate(1,['*'],'job_page');
+        $applications = $company->applications()->paginate(1,['*'],'app_page');
         return view('frontend.company.index', compact('applications', 'jobs'));
     }
 
