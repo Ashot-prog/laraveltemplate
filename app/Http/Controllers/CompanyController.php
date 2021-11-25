@@ -22,7 +22,7 @@ class CompanyController extends Controller
         $company =Auth::user();
         $messages = $company->messages()->get();
         $jobs = $company->jobs()->paginate(1,['*'],'job_page');
-        $applications = $company->applications()->paginate(2,['*'],'app_page');
+        $applications = $company->applications()->paginate(1,['*'],'app_page');
         return view('frontend.company.index', compact('applications', 'jobs','messages'));
     }
 
