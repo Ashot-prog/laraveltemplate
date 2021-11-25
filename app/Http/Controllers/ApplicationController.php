@@ -6,12 +6,16 @@ use App\Models\Application;
 use App\Models\Resume;
 use Illuminate\Http\Request;
 use App\http\Controllers\admin\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class ApplicationController extends Controller
 {
     public function index()
     {
-        //
+        $company =Auth::user();
+        $messages = $company->messages()->get();
+        $applications = $company->applications()->paginate(2,['*'],'app_page');
+        return view('messages.index', compact('applications', 'messages'));
     }
 
     public function create()

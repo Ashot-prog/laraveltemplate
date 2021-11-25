@@ -1701,7 +1701,6 @@ button:focus {
 }
 
 .feedback-area .feedback-item img {
-  position: absolute;
   right: -15px;
   bottom: -15px;
   border-radius: 50%;

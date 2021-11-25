@@ -9,20 +9,21 @@ use App\Models\Job;
 use App\Models\Resume;
 use App\Models\User;
 use App\Support\CompanyService;
+use http\Message;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\http\Controllers\admin\Controller;
 use Illuminate\Support\Facades\Auth;
-use function GuzzleHttp\Promise\all;
 
 class CompanyController extends Controller
 {
     public function index(Job $job, Application $application)
     {
         $company =Auth::user();
+        $messages = $company->messages()->get();
         $jobs = $company->jobs()->paginate(1,['*'],'job_page');
-        $applications = $company->applications()->paginate(1,['*'],'app_page');
-        return view('frontend.company.index', compact('applications', 'jobs'));
+        $applications = $company->applications()->paginate(2,['*'],'app_page');
+        return view('frontend.company.index', compact('applications', 'jobs','messages'));
     }
 
     public function create()

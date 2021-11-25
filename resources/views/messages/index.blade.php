@@ -1,4 +1,4 @@
-@extends('frontend.company.layout.layout')
+@extends('layout.index')
 <style>svg {
         width: 15%;
     }</style>
@@ -7,7 +7,7 @@
         <div class="d-table-cell">
             <div class="container">
                 <div class="title-item">
-                    <h2>Company</h2>
+                    <h2>Candidate Applications</h2>
                 </div>
             </div>
         </div>
@@ -17,28 +17,6 @@
 {{--    @if($application == $user)--}}
 
 <!-- Feedback -->
-<h2 class="border border-dark">Jobs</h2>
-<section class="feedback-area two pt-100">
-    <div class="container">
-        <div class="row">
-            @foreach($jobs as $job)
-                <div class="employer-item">
-                    <h3>{{$job->job_type}}</h3>
-                    <ul>
-                        <li>
-                            <i class="bx bx-location-plus"></i>
-                            {{$job->location}}
-                        </li>
-                        <li>{{$job->employer}}</li>
-                    </ul>
-                    <p>{{$job->industry}}/level{{$job->level}}/{{$job->experience}}</p>
-                    <span class="span-two">FULL TIME</span>
-                </div>
-            @endforeach
-        </div>
-    </div>
-</section>
-<div style="width: 50%;text-align: center; margin-left: 25%">{{ $jobs->links() }}</div>
 <h2 class="border border-danger">Application</h2>
 <section class="feedback-area two pt-100">
     <div class="container">

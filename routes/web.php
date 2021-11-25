@@ -24,6 +24,7 @@ Route::get('/contact', function () {
     return view('frontend.contact.index');
 });
 Route::get('/register',[\App\Http\Controllers\Auth\RegisterController::class,'create']);
+Route::get('/applications',[\App\Http\Controllers\ApplicationController::class,'index']);
 Route::post('/candidateCreat',[\App\Http\Controllers\Auth\RegisterController::class,'store']);
 Route::get('/candidate',[\App\Http\Controllers\Auth\RegisterController::class,'index']);
 Route::get('/login',[\App\Http\Controllers\Auth\LoginController::class,'index']);
@@ -38,7 +39,8 @@ Route::get('/myresume', [\App\Http\Controllers\ResumeController::class, 'index']
 Route::get('/favoritejob', [\App\Http\Controllers\FavoriteJobController::class, 'store']);
 Route::prefix('company')->group(function () {
     Route::get('/register',[\App\Http\Controllers\CompanyController::class, 'create'])->name('company');
-    Route::post('/',[\App\Http\Controllers\CompanyController::class, 'store']);
+    Route::get('/', [\App\Http\Controllers\CompanyController::class, 'index'])->name('company');
+    Route::post('/sending',[\App\Http\Controllers\MessageController::class,'store']);
     Route::post('/jobregister',[\App\Http\Controllers\JobController::class,'create']);
 });
 
@@ -48,7 +50,6 @@ Route::prefix('admin')->group(function () {
     });
     Route::get('/jobs',[\App\Http\Controllers\JobController::class,'index']);
     Route::get('/about', [\App\Http\Controllers\AboutController::class, 'index'])->name('about');
-    Route::get('/company', [\App\Http\Controllers\CompanyController::class, 'index'])->name('company');
 
 });
 
