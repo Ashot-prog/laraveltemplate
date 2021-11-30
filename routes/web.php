@@ -40,6 +40,7 @@ Route::get('/favoritejob', [\App\Http\Controllers\FavoriteJobController::class, 
 Route::prefix('company')->group(function () {
     Route::get('/register',[\App\Http\Controllers\CompanyController::class, 'create'])->name('company');
     Route::get('/', [\App\Http\Controllers\CompanyController::class, 'index'])->name('company');
+    Route::get('/messages', [\App\Http\Controllers\MessageController::class, 'index']);
     Route::post('/sending',[\App\Http\Controllers\MessageController::class,'store']);
     Route::post('/jobregister',[\App\Http\Controllers\JobController::class,'create']);
 });

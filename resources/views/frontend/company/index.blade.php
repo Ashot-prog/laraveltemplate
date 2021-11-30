@@ -44,39 +44,24 @@
     <div class="container">
         <div class="row">
             @foreach($applications as $application)
-                <div class="col-lg-6">
-                    <div class="feedback-item">
-                        <h4>
-                            Level: {{$application->level}}
-                        </h4>
-                        <h4>
-                            Number: {{$application->number}}
-                        </h4>
-                        <h4>
-                            Experience: {{$application->experience}}
-                        </h4>
-                        <h4>
-                            Industry: {{$application->industry}}
-                        </h4>
-                        @foreach($messages as $message)
-                            @if($application->candidate_id == $message->candidate_id)
-                                <div>
-                                    <p>{{$message->message}}</p>
-                                    <img style="position: inherit" src="{{asset('../images/'.substr($message->posters,2,-2))}}" alt="">
-                                </div>
-                            @endif
-                        @endforeach
-
-                        <form action="{{asset('company/sending')}}" method="post" enctype="multipart/form-data">
-                            @csrf
-                            <input type="hidden" name="candidate_id" value="{{$application->candidate_id}}">
-                            <input type="hidden" name="url" value="{{\Illuminate\Support\Facades\URL::full()}}">
-                            <input type="text" name="message">
-                            <input type="file" class="form-control" name="posters[]" placeholder="add posters" multiple>
-                            <input type="submit">
-                        </form>
+                <a href="{{asset('company/messages?id='.($application->candidate_id))}}">
+                    <div class="col-lg-6">
+                        <div class="feedback-item">
+                            <h4>
+                                Level: {{$application->level}}
+                            </h4>
+                            <h4>
+                                Number: {{$application->number}}
+                            </h4>
+                            <h4>
+                                Experience: {{$application->experience}}
+                            </h4>
+                            <h4>
+                                Industry: {{$application->industry}}
+                            </h4>
+                        </div>
                     </div>
-                </div>
+                </a>
             @endforeach
         </div>
     </div>

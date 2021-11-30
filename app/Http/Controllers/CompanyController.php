@@ -17,14 +17,14 @@ use Illuminate\Support\Facades\Auth;
 
 class CompanyController extends Controller
 {
-    public function index(Job $job, Application $application)
+    public function index()
     {
         $company =Auth::user();
-        $messages = $company->messages()->get();
         $jobs = $company->jobs()->paginate(1,['*'],'job_page');
         $applications = $company->applications()->paginate(1,['*'],'app_page');
-        return view('frontend.company.index', compact('applications', 'jobs','messages'));
+        return view('frontend.company.index', compact('applications', 'jobs'));
     }
+
 
     public function create()
     {

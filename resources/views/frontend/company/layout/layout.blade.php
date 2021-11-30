@@ -6,6 +6,8 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('../css/bootstrap.min.css')}}">
+
+    <link rel="stylesheet" href="{{asset('../css/index.css')}}">
     <!-- Meanmenu CSS -->
     <link rel="stylesheet" href="{{asset('../css/meanmenu.css')}}">
     <!-- Nice Select JS -->
