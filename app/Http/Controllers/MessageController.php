@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Candidate;
 use App\Models\Job;
 use App\Models\Message;
 use Illuminate\Http\Request;
@@ -11,12 +12,25 @@ use Illuminate\Support\Facades\URL;
 
 class MessageController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
 //        dd($_GET);
-        $company = Auth::user();
-        $messages = $company->messages()->where('candidate_id', $_GET['id'])->get();
-        return view('frontend.company.messages.index',compact('messages'));
+        /**@var Candidate $user*/
+        $user = Auth::user();
+        $applications = $user->applications()->get();
+        $user->load([
+            'sentMessages' => function ($query) use ($request) {
+                $query->where('to_id', $request->get('id'));
+            },
+            'getMessages' => function ($query) use ($request) {
+                $query->where('from_id', $request->get('id'));
+            }
+        ])->get();
+
+        $messages = $user->sentMessages;
+        $messages = $messages->merge($user->getMessages);
+        $messages = $messages->sortBy('id');
+        return view('frontend.company.messages.index',compact('messages','applications'));
     }
 
     public function create()
@@ -27,7 +41,7 @@ class MessageController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'candidate_id' => ['required'],
+            'to_id' => ['required'],
             'message' => ['required']
         ]);
         $input = $request->except('_token', 'posters');
@@ -41,9 +55,9 @@ class MessageController extends Controller
         }else{
             $input['posters']='';
         }
-        $input['company_id'] = Auth::id();
+        $input['from_id'] = Auth::id();
         Message::create($input);
-        return redirect(asset('company/messages?id='.$request->candidate_id));
+        return redirect(asset('company/messages?id='.$request->to_id));
 
     }
 

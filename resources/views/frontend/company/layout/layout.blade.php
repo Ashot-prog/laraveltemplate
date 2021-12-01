@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" href="{{asset('../css/index.css')}}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('../css/bootstrap.min.css')}}">
-
-    <link rel="stylesheet" href="{{asset('../css/index.css')}}">
     <!-- Meanmenu CSS -->
     <link rel="stylesheet" href="{{asset('../css/meanmenu.css')}}">
     <!-- Nice Select JS -->
@@ -29,6 +27,8 @@
     <link rel="stylesheet" href="{{asset('../css/style.css')}}">
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="{{asset('../css/responsive.css')}}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
 
     <title>Jecto - Job Board and Portal HTML Template</title>
 
@@ -52,7 +52,6 @@
             <img src="{{asset('../img/logo-three.png')}}" alt="Logo">
         </a>
     </div>
-
     <!-- Menu For Desktop Device -->
     <div class="main-nav"  >
         <div class="container-fluid" >
@@ -132,4 +131,6 @@
         </div>
     </div>
 </div>
+
+
 

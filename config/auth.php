@@ -68,10 +68,6 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\Candidate::class,
         ],
-        'candidate' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Candidate::class,
-        ],
 
         // 'users' => [
         //     'driver' => 'database',

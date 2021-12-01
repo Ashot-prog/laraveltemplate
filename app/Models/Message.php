@@ -8,7 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Carbon;
 
+/**
+ * @property string $message
+ * @property string $passed_time
+ */
 class Message extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -19,7 +24,7 @@ class Message extends Model
      * @var string[]
      */
     protected $fillable = [
-        'company_id', 'candidate_id', 'message', 'posters'
+        'from_id', 'to_id', 'message', 'posters'
     ];
 
     /**
@@ -41,4 +46,18 @@ class Message extends Model
     {
         return $this->belongsTo(Candidate::class, 'company_id', 'id');
     }
+
+    public function getPassedTimeAttribute()
+    {
+        $minuteDiff = $this->created_at->diffInMinutes(Carbon::now());
+        if ($minuteDiff < 60) {
+            return $minuteDiff . ' minutes ago';
+        }
+        if ($minuteDiff < 1440){
+            return round($minuteDiff/60) . ' hours ago';
+        } else {
+            return round($minuteDiff/1440) . ' days ago';
+        }
+    }
+
 }

@@ -48,16 +48,16 @@
                     <div class="col-lg-6">
                         <div class="feedback-item">
                             <h4>
+                                Name: {{$application->name}}
+                            </h4>
+                            <h4>
                                 Level: {{$application->level}}
                             </h4>
                             <h4>
-                                Number: {{$application->number}}
+                                Number: +374 {{$application->number}}
                             </h4>
                             <h4>
                                 Experience: {{$application->experience}}
-                            </h4>
-                            <h4>
-                                Industry: {{$application->industry}}
                             </h4>
                         </div>
                     </div>

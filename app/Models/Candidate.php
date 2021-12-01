@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -13,6 +14,11 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Testing\Fluent\Concerns\Has;
 use Laravel\Sanctum\HasApiTokens;
 
+
+/**
+ * @property Collection $sentMessages
+ * @property Collection $getMessages
+ */
 class Candidate extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -66,8 +72,14 @@ class Candidate extends Authenticatable
         return $this->hasMany(Job::class, 'company_id', 'id');
     }
 
-    public function messages()
+    public function sentMessages()
     {
-        return $this->hasMany(Message::class, 'company_id', 'id');
+        return $this->hasMany(Message::class, 'from_id', 'id');
     }
+
+    public function getMessages()
+    {
+        return $this->hasMany(Message::class, 'to_id', 'id');
+    }
+
 }
